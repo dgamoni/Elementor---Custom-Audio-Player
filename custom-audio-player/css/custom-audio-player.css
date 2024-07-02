@@ -1,0 +1,27 @@
+.custom-audio-player {
+    position: relative;
+/*    display: flex;*/
+    align-items: center;
+}
+
+.player-controls {
+    margin-left: 10px;
+}
+
+.play-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.elementor .play-button img {
+    width: 77px;
+    height: 46px;
+}
+.player-controls button:focus, 
+.player-controls button:hover {
+    background-color: transparent;
+}
