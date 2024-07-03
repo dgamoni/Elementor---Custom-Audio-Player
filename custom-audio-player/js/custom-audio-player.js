@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
 
     // Clear listener after first call.
     sound.once('load', function(){
-      sound.play();
+      //sound.play();
     });    
 
     var playButton = $('.play-button');
@@ -38,7 +38,7 @@ jQuery(document).ready(function($) {
 
     $(document).one('click touchstart', function() {
         if (!sound.playing()) {
-            sound.play();
+           // sound.play();
         }
     });
 
@@ -47,131 +47,51 @@ jQuery(document).ready(function($) {
 
     var video = $('.video-1');
 
-    if (video) {
-        var videoOffset = $(video).offset().top; // Ensure jQuery object for offset
-        var windowHeight = $(window).height();
+    // if (video) {
+    //     var videoOffset = $(video).offset().top; // Ensure jQuery object for offset
+    //     var windowHeight = $(window).height();
 
-            var videoOffset = video.offset().top - 150;
-            //console.log(videoOffset);
-            var windowHeight = $(window).height();
+    //         var videoOffset = video.offset().top - 150;
+    //         //console.log(videoOffset);
+    //         var windowHeight = $(window).height();
 
-            $(window).on('scroll', function() {
-                var scrollTop = $(window).scrollTop();
-                //console.log(scrollTop);
-                var fadeStart = videoOffset - windowHeight;
-                var fadeEnd = videoOffset;
-                var fadeRange = fadeEnd - fadeStart;
+    //         $(window).on('scroll', function() {
+    //             var scrollTop = $(window).scrollTop();
+    //             //console.log(scrollTop);
+    //             var fadeStart = videoOffset - windowHeight;
+    //             var fadeEnd = videoOffset;
+    //             var fadeRange = fadeEnd - fadeStart;
 
-                if (scrollTop > fadeStart && scrollTop < fadeEnd) {
-                    video.muted = false;
-                    var fadeFraction = (scrollTop - fadeStart) / fadeRange;
-                    console.log(fadeFraction);
-                    var audioVolume = 1 - fadeFraction;
-                    var videoVolume = fadeFraction;
+    //             if (scrollTop > fadeStart && scrollTop < fadeEnd) {
+    //                 video.muted = false;
+    //                 var fadeFraction = (scrollTop - fadeStart) / fadeRange;
+    //                 console.log(fadeFraction);
+    //                 var audioVolume = 1 - fadeFraction;
+    //                 var videoVolume = fadeFraction;
 
-                    sound.volume(audioVolume);
-                    video.prop('volume', videoVolume);
-                } else if (scrollTop >= fadeEnd) {
-                    video.muted = false;
-                    sound.volume(0);
-                    video.prop('volume', 1);
-                    if (sound.playing()) {
-                        //sound.pause();
-                    }
-                } else {
-                    sound.volume(1);
-                    video.prop('volume', 0);
-                }
-            });
-
-        //video.muted = false;
-        //video.play();
-    } else {
-        console.error("Video element not found.");
-    }
-
-
-    // // Attempt to autoplay on mouseover
-    // $(document).one('mouseover', function() {
-    //     if (!sound.playing()) {
-    //         //sound.play();
-    //     }
-    // });
-
-    // // Stop audio when scrolling
-    // $(window).on('scroll', function() {
-    //     if (sound.playing()) {
-    //         //sound.pause();
-    //     }
-    // });
-
-    // // Smooth fade out of audio when video begins
-    // $('video').on('play', function() {
-    //     sound.fade(sound.volume(), 0, 1000); // Adjust the fading speed here
-    //     setTimeout(function() {
-    //         sound.pause();
-    //         sound.volume(1); // Reset volume for next play
-    //     }, 1000);
-    // });
-});
-
-
-
-
-jQuery(document).ready(function($) {
-
-
-
-    // var audioPlayer = document.getElementById('audio-player');
-    // var videoElement = $('video'); // Adjust the selector based on your video element
-
-
-    // // Try to autoplay the audio, unmuting after a short delay
-    // function attemptAutoplay() {
-    //     audioPlayer.play().then(function() {
-    //         setTimeout(function() {
-    //             audioPlayer.muted = false;
-    //         }, 1000); // Unmute after 1 second
-    //     }).catch(function(error) {
-    //         console.log('Audio playback was prevented by the browser:', error);
-    //         playedOnLoad = true;
-    //     });
-    // }
-
-    // // Stop audio when scrolling
-    // $(window).on('scroll', function() {
-    //     if (audioPlayer && !audioPlayer.paused) {
-    //         //audioPlayer.pause();
-    //     }
-    // });
-
-    // // Smooth fade out of audio when video begins
-    // if (videoElement.length) {
-    //     videoElement.on('play', function() {
-    //         var fadeOutInterval = setInterval(function() {
-    //             if (audioPlayer.volume > 0.1) {
-    //                 audioPlayer.volume -= 0.1;
+    //                 sound.volume(audioVolume);
+    //                 video.prop('volume', videoVolume);
+    //             } else if (scrollTop >= fadeEnd) {
+    //                 video.muted = false;
+    //                 sound.volume(0);
+    //                 video.prop('volume', 1);
+    //                 if (sound.playing()) {
+    //                     //sound.pause();
+    //                 }
     //             } else {
-    //                 clearInterval(fadeOutInterval);
-    //                 audioPlayer.pause();
-    //                 audioPlayer.volume = 1; // Reset volume for next play
+    //                 sound.volume(1);
+    //                 video.prop('volume', 0);
     //             }
-    //         }, 100); // Adjust the fading speed here
-    //     });
+    //         });
+
+    // } else {
+    //     console.error("Video element not found.");
     // }
 
-    // // Try to start audio automatically on page load
-    // //attemptAutoplay();
-
-
-    
-
-    // // Play audio on user interaction if autoplay fails
-    // $(document).one('click touchstart mouseover', function() {
-    //     if (audioPlayer.paused) {
-    //         attemptAutoplay();
-    //     }
-    // });
 
 
 });
+
+
+
+
